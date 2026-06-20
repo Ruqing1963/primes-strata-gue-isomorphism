@@ -1,0 +1,115 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{xurl}
+\onehalfspacing
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black,breaklinks=true}
+
+\title{\textbf{The Music of the Primes Meets the Rhythm of the Strata:\\
+A Same-Universality-Class Test Between Riemann Zeta Zeros and\\
+Real Milankovitch Cyclostratigraphy}\\[4pt]
+\large A Companion to Part I --- Both Belong to the GUE Class,\\
+but the Strata Are More Rigid}
+
+\author{Ruqing Chen\\
+\textit{GUT Geoservice Inc., Montreal, Canada}\\
+\texttt{ruqing@hotmail.com}}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The nontrivial zeros of the Riemann zeta function are known to follow the Gaussian Unitary Ensemble (GUE) of random matrix theory (the Montgomery--Odlyzko law). In Part~I of our fifth racetrack \citep{chen2026spatial} we found that the down-core spacings of Milankovitch cycles in real cyclostratigraphic sections also reach the GUE class. Here we put both on the same scale and ask, with \emph{purely real data on both sides}, whether they are statistically isomorphic. Target~A is 4520 real Riemann zeros (imaginary parts) computed by David Platt and archived in the LMFDB, decoded from the native binary format and verified against published values. Target~B is the \emph{two} independent real cyclostratigraphic sections of Part~I---the Gubbio Contessa magnetic-susceptibility section (PANGAEA 864450) and the Blue Lias section (PANGAEA 896875)---processed by the same validated spatial-RMT pipeline. The 4519 real zero spacings give $\langle r\rangle = 0.617$, essentially the theoretical GUE value (0.603), confirming the method. The two strata sections give $\langle r\rangle = 0.735$ (Gubbio, $n=31$) and $0.748$ (Blue Lias, $n=98$): both systematically more rigid than the zeros, by $+0.12$ and $+0.13$. With Gubbio alone a two-sample Kolmogorov--Smirnov test cannot resolve this ($p=0.65$, small sample), but the larger Blue Lias section \emph{does}: it rejects equality with the zeros ($D=0.145$, $p=0.031$), as do the two sections combined ($n=129$, $p=0.037$). We conclude that the strata and the zeros share the GUE universality class but are \emph{not} the same distribution: two independent astronomically forced sections sit measurably closer to the rigid-lattice limit than the zeta zeros, and with enough strata spacings this difference is statistically significant. Sharing a universality class is a real and deep statistical-physics correspondence; it is not evidence of any causal or ontological link between primes and strata.
+
+\medskip
+\noindent\textbf{Keywords:} Riemann zeta zeros; GUE; random matrix theory; cyclostratigraphy; Milankovitch; universality class; Montgomery--Odlyzko law
+
+\medskip
+\noindent\textbf{Data:} real zeros from LMFDB (D. Platt); real strata from PANGAEA 864450. Code/data: \url{https://github.com/Ruqing1963/primes-strata-gue-isomorphism}
+\end{abstract}
+
+\section{Introduction}
+
+In 1972, Hugh Montgomery and Freeman Dyson noticed that the pair correlation of the Riemann zeta zeros matches that of the eigenvalues of the Gaussian Unitary Ensemble (GUE), a connection later supported by Odlyzko's massive computations \citep{montgomery1973,odlyzko1987}. The zeros---encoding the distribution of primes---thus carry the same level-repulsion statistics as the energy levels of complex quantum systems.
+
+In Part~I of our fifth racetrack \citep{chen2026spatial} we found that the spatial spacings of Milankovitch cycles in real cyclostratigraphic sections reach the same GUE class, driven by quasi-periodic astronomical forcing. This raises an irresistible question: placed on the same scale, are the spacings of the zeta zeros and of real climate-driven strata statistically isomorphic? Here we test this with real data on both sides, and we are deliberately careful to distinguish ``same universality class'' from ``identical distribution.''
+
+\section{Data and Methods}
+
+\subsection{Target A: real Riemann zeros}
+We use 4520 nontrivial zeros (imaginary parts $\gamma_n$, interval $t\in(14,5000]$) computed by David Platt to 100-bit precision and archived in the LMFDB, which holds $1.038\times10^{11}$ such zeros \citep{lmfdb,platt2021}. We decoded these from the native Platt binary format (incremental fixed-point in units of $2^{-101}$) and verified the first values against the published Odlyzko/Plouffe table: $\gamma_1=14.134725$, $\gamma_2=21.022040$, $\gamma_3=25.010858$, $\gamma_4=30.424876$, $\gamma_5=32.935062$, all matching to printed precision, and the full set strictly increasing. The spacings are unfolded by the Riemann--von Mangoldt density $N(t)\approx (t/2\pi)\log(t/2\pi)-t/2\pi$, the standard procedure.
+
+\subsection{Target B: two real strata sections}
+We use the \emph{two} independent real cyclostratigraphic sections established in Part~I: the Gubbio Contessa Highway magnetic-susceptibility section (Tethyan, Danian; PANGAEA 864450) and the Blue Lias section (UK, Hettangian; PANGAEA 896875). Each is processed exactly as in Part~I---smoothing, Milankovitch peak detection, spatial declustering, and spline unfolding---yielding 31 spacings (Gubbio) and 98 spacings (Blue Lias). Using both sections mirrors Part~I and, crucially, raises the stratigraphic sample size enough to test the rigidity difference against the zeros.
+
+\subsection{Tests}
+We compute $\langle r\rangle$ for the zeros and for each strata section, two-sample KS tests of each section (and the two combined) against the 4519 real zero spacings, and a quantile--quantile comparison.
+
+\section{Results}
+
+\begin{table}[H]
+\centering
+\caption{Real Riemann zeros versus real Gubbio strata.}
+\label{tab:main}
+\small
+\begin{tabular}{lcccc}
+\toprule
+ & Riemann zeros & Gubbio & Blue Lias & GUE theory \\
+\midrule
+Spacings $n$ & 4519 & 31 & 98 & --- \\
+$\langle r\rangle$ & 0.617 & 0.735 & 0.748 & 0.603 \\
+$\Delta\langle r\rangle$ vs zeros & --- & $+0.118$ & $+0.131$ & --- \\
+KS $p$ vs zeros & --- & 0.65 & \textbf{0.031} & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The zeros track GUE precisely.} With 4519 real spacings, $\langle r\rangle = 0.617$, essentially the theoretical GUE value 0.603. This both confirms the Montgomery--Odlyzko law on this sample and validates our unfolding pipeline.
+
+\paragraph{Both strata sections are more rigid---and the larger one makes it significant.} Both sections give $\langle r\rangle$ well above the zeros: Gubbio 0.735 ($+0.118$) and Blue Lias 0.748 ($+0.131$). Both are systematically \emph{more rigid}---closer to a perfectly periodic lattice---than the zeta zeros. Crucially, the statistical resolution of this difference depends on sample size. With Gubbio's 31 spacings, the two-sample KS test cannot reject equality ($D=0.127$, $p=0.65$): too few spacings. But the larger Blue Lias section (98 spacings) \emph{does} reject equality with the zeros ($D=0.145$, $p=0.031$), and so do the two sections combined ($n=129$, $D=0.125$, $p=0.037$). The small-sample non-resolution for Gubbio is thus exactly that---a sample-size effect---now overcome by a second, larger real section.
+
+\paragraph{The geometry of the difference.} On the Q--Q plot (Figure~\ref{fig:qq}, left), \emph{both} sections trace the same shape: near $y=x$ in the middle but bending above it at both tails, i.e. strata spacings are more tightly concentrated around the mean than the zeros'. On the CDFs (right), the 4519 real zeros track GUE theory almost exactly, while both strata sections sit to the left, shifted toward the rigid-lattice limit. That two independent sections---different basins, ages, and lithologies---show the \emph{same} rigidity offset indicates this is a general property of astronomically forced strata, not a peculiarity of one section. This is precisely what an external periodic clock predicts: it is more regular than the GUE.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figs/qq_isomorphism.pdf}
+\caption{Left: Q--Q plot of two real strata sections (Gubbio $n=31$, Blue Lias $n=98$) against real Riemann zero spacings ($n=4519$). Both bend above $y=x$ at the tails---the same rigidity signature. Right: empirical CDFs---the 4519 real zeros track GUE theory almost exactly, while both strata sections sit to the left (more rigid). The larger Blue Lias section rejects equality with the zeros (KS $p=0.031$), as do the two combined ($p=0.037$); Gubbio alone cannot ($p=0.65$, small sample).}
+\label{fig:qq}
+\end{figure}
+
+\section{Discussion}
+
+\paragraph{Same universality class, not the same distribution.} The honest reading is twofold. (1)~\emph{Both belong to the GUE universality class}---both show strong level repulsion, both far from Poisson, both governed by the statistics of single-source quasi-periodic/quantum-chaotic spectra. This is a real and deep correspondence, the same kind Montgomery and Dyson found between primes and nuclei. (2)~\emph{They are not pointwise identical}: two independent real strata sections sit measurably closer to the rigid-lattice limit than the zeta zeros ($\Delta\langle r\rangle=+0.12$ and $+0.13$), and with the larger section this difference is statistically significant ($p=0.031$). What looked unresolved with Gubbio alone is resolved once a second, larger real section is added.
+
+\paragraph{What this does and does not mean.} Sharing a universality class means the two systems are organized by the same statistical-physics principle---single-source spectra repel in a GUE-like way. It does \emph{not} imply any causal, physical, or ontological connection between prime numbers and sedimentary rhythms. Universality is precisely the statement that microscopically unrelated systems can share macroscopic statistics; that is the depth of the result, and also its limit.
+
+\paragraph{Limitations.} The stratigraphic side now rests on two sections (129 spacings combined); more real sections would further test the universality of the $\sim\!+0.12$ rigidity offset across the cyclostratigraphic record. We used 4520 of the available $10^{11}$ real zeros; a future version can use more, though the zero side is already essentially noise-free at the GUE limit. Three further uploaded Platt files (covering higher $t$) were not used here because their multi-block binary structure was not fully decoded; we restricted to the fully verified block. Peak detection on the strata introduces a modeling choice, mitigated in Part~I by multi-scale robustness and a surrogate test.
+
+\section{Conclusions}
+With real data on both sides---4520 Platt/LMFDB Riemann zeros and the real Gubbio cyclostratigraphic section---we find that both belong to the GUE universality class, the real zeros tracking GUE theory almost exactly. They are not, however, the same distribution: two independent astronomically forced sections (Gubbio and Blue Lias) are systematically more rigid than the zeros ($\Delta\langle r\rangle=+0.12$ and $+0.13$), and with the larger Blue Lias section this difference is statistically significant ($p=0.031$). The music of the primes and the rhythm of the strata are written in the same key---GUE---but they are not the same melody: the strata are more rigid. That two unrelated real sections show the same offset suggests it is a general feature of astronomically forced strata, the signature of an external periodic clock that is more regular than the GUE.
+
+\section*{Data and Code Availability}
+Real Riemann zeros: D. Platt, via LMFDB (\url{https://www.lmfdb.org/zeros/zeta/}); decoded subset (4520 zeros) provided as CSV. Real strata: PANGAEA 864450. Part~I (published): \url{https://zenodo.org/records/20774581}. Code and processed data: \url{https://github.com/Ruqing1963/primes-strata-gue-isomorphism}.
+
+\begin{thebibliography}{9}
+\bibitem[Chen(2026e)]{chen2026spatial} Chen, R. (2026e). Spatial level repulsion in the stratigraphic record: a random matrix theory test of cyclostratigraphic bed spacing (Racetrack~5, Part~I). Zenodo, \url{https://zenodo.org/records/20774581}.
+\bibitem[LMFDB(2024)]{lmfdb} The LMFDB Collaboration (2024). The L-functions and Modular Forms Database, Zeros of $\zeta(s)$. \url{https://www.lmfdb.org/zeros/zeta/}.
+\bibitem[Montgomery(1973)]{montgomery1973} Montgomery, H.L. (1973). The pair correlation of zeros of the zeta function. \textit{Proc. Symp. Pure Math.}, 24, 181--193.
+\bibitem[Odlyzko(1987)]{odlyzko1987} Odlyzko, A.M. (1987). On the distribution of spacings between zeros of the zeta function. \textit{Math. Comp.}, 48, 273--308.
+\bibitem[Platt \& Trudgian(2021)]{platt2021} Platt, D., Trudgian, T. (2021). The Riemann hypothesis is true up to $3\cdot10^{12}$. \textit{Bull. LMS}, 53, 792--797.
+\bibitem[Sinnesael et al.(2016)]{sinnesael2016} Sinnesael, M., et al. (2016). Magnetic susceptibility, Contessa Highway, Gubbio. PANGAEA, \url{https://doi.org/10.1594/PANGAEA.864450}.
+\end{thebibliography}
+
+\end{document}
